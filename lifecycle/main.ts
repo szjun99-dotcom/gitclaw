@@ -65,7 +65,7 @@ try {
   }
 
   // --- Run agent ---
-  const piArgs = ["bunx", "pi", "--mode", "json", "--model","--provider", "google" "gemini-1.5-flash", "--session-dir", "./state/sessions", "-p", prompt];
+  const piArgs = ["bunx", "pi", "--mode", "json", "--model","gemini-1.5-flash","--provider", "google" , "--session-dir", "./state/sessions", "-p", prompt];
   if (mode === "resume" && sessionPath) {
     piArgs.push("--session", sessionPath);
   }
