@@ -73,7 +73,7 @@ try {
   const pi = Bun.spawn(piArgs, { stdout: "pipe", stderr: "ignore" });
   const tee = Bun.spawn(["tee", "/tmp/agent-raw.jsonl"], { stdin: pi.stdout, stdout: "inherit" });
   await tee.exited;
-
+  await run(["cat", "/tmp/agent-raw.jsonl"]);
   // Extract text from the agent's final message
   const tac = Bun.spawn(["tac", "/tmp/agent-raw.jsonl"], { stdout: "pipe" });
   const jq = Bun.spawn(
