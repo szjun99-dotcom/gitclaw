@@ -27,6 +27,7 @@ const reactionState = existsSync("/tmp/reaction-state.json")
   : null;
 
 try {
+  console.log("🔑 API Key check:", process.env.GOOGLE_API_KEY ? "Detected ✅" : "Missing ❌");
   // --- Fetch issue ---
   const title = await gh("issue", "view", String(issueNumber), "--json", "title", "--jq", ".title");
   const body = await gh("issue", "view", String(issueNumber), "--json", "body", "--jq", ".body");
